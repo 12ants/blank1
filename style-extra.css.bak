@@ -1,0 +1,453 @@
+html {
+-webkit-text-size-adjust: 100%;
+font-size: 14px;
+margin: 0px 12px;
+}
+
+body {
+background-color: #ffffff;
+margin: 18px 0px;
+height: 100%;
+width: 100%;
+font-size: 100%;
+overflow-y: overlay !important;
+overflow-x: hidden;
+scroll-behavior: smooth;
+text-rendering: optimizeLegibility;
+font-family: monospace;
+letter-spacing: ;
+}
+
+.site-header {
+padding: 0px 0px;
+margin-bottom: 6px;
+}
+
+
+.site-title, .site-description {
+margin: 0;
+text-align: right;
+}
+
+
+
+.site {
+margin: 12px auto;
+background: #dddddd42;
+margin-bottom: 82px;
+padding: 8px;
+max-width: 666px;
+border: 1px solid #cccccc;
+}
+
+.site img {
+margin: 12px -12px;
+max-width: calc(100% + 24px);
+}
+
+a, a:visited, a:active {
+color: #666;
+transition: 0.4s;
+background-color: transparent;
+}
+
+a:hover, a:visited:hover, a:active:hover {transition: 0.4s;
+
+color: #000;
+box-shadow: 1px 1px #999, 2px 2px #999;
+background-color: red !important;
+}
+
+.entry-header {
+display: ;
+justify-content: space-between;
+/* align-items: stretch; */
+flex-wrap: nowrap;
+flex-direction: row;
+letter-spacing: ;
+}
+
+.published + * {
+display: none;
+}
+
+.entry-title, .wp-block-latest-posts__post-title {
+margin-top: -12px;
+line-height: 6;
+letter-spacing: px;
+}
+
+.entry-meta, .wp-block-latest-posts__post-author {
+text-align: right;
+margin: 10px -12px 28px;
+line-height: 0;
+}
+
+.entry-content {
+padding: 12px;
+margin: 44px -12px;
+background: ;
+line-height: 2;
+}
+
+.wp-block-latest-posts li, .post {
+margin-bottom: 42px;
+background: #ffffff;
+padding: 26px 12px;
+padding-top: 6px;
+border-bottom: #bbbbbbbb;
+outline: 1px solid #bbbbbbbb;
+outline-offset: -0.5px;
+border-radius: 1px;
+}
+
+.intro {
+margin-bottom: 42px;
+background: #ffffff;
+padding: 1px 12px;
+padding-top: ;
+border-bottom: #bbbbbbbb;
+outline: 1px solid #bbbbbbbb;
+outline-offset: -0.5px;
+border-radius: 1px;
+}
+
+/*-- menu --*/
+.main-navigation ul {
+position: fixed;
+opacity: 1;
+transition: 0.9s;
+z-index: -1;
+
+}
+
+.main-navigation li {
+margin:-10px -10px;
+list-style: none;
+position: ;
+background: ;
+opacity: 0;
+transition: 0.9s;
+border: 0px solid #cccccc55;
+text-transform: ;
+}
+
+
+.main-navigation li a{
+		line-height: 2.8;
+font-size: 100%;
+letter-spacing: 1.2px;
+text-decoration: none 1px dotted #bbb;text-transform: ;
+
+color: black;
+line-height: 2.8;
+transition: 0.9s;
+background: #fff;
+padding: 8px;
+border: 1px solid #66666666;
+margin: 12px;
+box-shadow: 1px 1px #666666, 2px 2px #666666, 0px 0px 18px #66666644;
+}
+.main-navigation ul a{
+letter-spacing: 1.2px;
+text-decoration: none 1px dotted #bbb;letter-spacing: 1.4px;
+
+color: black;
+line-height: 2;
+transition: 0.9s;
+background: #fff;
+padding: 8px;
+border: 1px solid #66666666;
+margin: 12px;
+
+z-index: 9991;
+
+
+}
+
+
+.main-navigation.toggled ul {
+list-style: none;
+padding: px;
+position: ;
+background: ;
+opacity: 1;
+transition: 0.9s;
+z-index: 9991;
+text-align: ;
+}
+
+.main-navigation.toggled li a {
+font-size: 100%;
+letter-spacing: 1.2px;
+text-decoration: none 1px dotted #bbb;text-transform: ;
+
+color: black;
+line-height: 2.8;
+transition: 0.9s;
+background: #fff;
+padding: 8px;
+border: 1px solid #66666666;
+margin: 12px;
+box-shadow: 1px 1px #666666, 2px 2px #666666, 0px 0px 18px #66666644;
+}
+
+.main-navigation.toggled li {
+margin: 4px;
+list-style: none;
+position: ;
+background: ;
+opacity: 1;
+transition: 0.9s;
+border: 0px solid #cccccc55;
+text-transform: ;
+}
+
+.main-navigation.toggled li:hover:not(.menu-item-has-children) {
+margin-left: 18px;
+transition: 0.4s;
+
+}
+
+.nav-links {
+display: flex;
+justify-content: space-between;
+flex-direction: row-reverse;
+align-items: flex-start;
+}
+
+.menu-toggle:before {
+letter-spacing: 4px;
+text-indent: 2px;
+text-align: ;background: #ffffff;
+
+content: "*_*";
+}
+
+.menu-toggle:hover {
+background: #ffffff;
+transition: .9s ease-out;
+}
+
+.menu-toggle:hover {
+background: #fff;
+transform: rotate(360deg);
+border-radius: 20px;
+box-shadow: 0px 0px 60px 2px #cc4422;
+color: #666666;
+	border: 1px solid #22222266;
+
+text-shadow: 0px 1px 4px #ff000d;
+}
+
+.menu-toggle {
+transform: rotate(180deg);
+font-size: 18px;
+font-family: Arial, sans-serif;
+display: flex;
+flex-direction: column;
+transition: 0.9s;
+line-height: 1.56;
+overflow: hidden;
+position: absolute;
+top: ;
+margin-top: -32px;
+width: 32px;
+height: 32px;
+color: #66666688;
+opacity: 1;
+background: #ffffff;
+cursor: pointer;
+border: 1px solid #22222244;
+border-radius: 2px;
+align-items: center;
+justify-content: ;
+align-content: center;
+}
+
+.toggled .menu-toggle {
+color: #666666;
+transform: rotate(-360deg);
+transition: .9s;
+	border-radius: 40px;
+text-shadow: 0px 0px 4px #000fff, 1px 1px 2px #000fff;
+border: 1px solid #22222288 ;
+
+}
+
+.toggled .menu-toggle:hover {
+transform: rotate(0deg);
+color: #666666;
+text-shadow: 0px 0px 2px #000;
+box-shadow: 0px 0px 60px 2px #ffffff;
+}
+.menu-item-has-children>a:after {
+	content:" >";
+	opacity:.4;
+}
+
+.menu-item-has-children:hover .sub-menu {
+		opacity:1!important;
+	margin:10px -12px!important;
+
+}
+.sub-menu{
+	opacity:0!important;
+	display:inline-block;
+	margin:10px -22px!important;
+
+}
+
+
+.sub-menu li{
+	padding:0px;
+	opacity:0.4;
+	display:c;
+	margin:6px 0!important;
+	gap:10px;
+}
+
+
+
+.toggled [aria-expanded="true"] {
+transition: 0.9s;
+}
+
+/* prev next links */
+.nav-links a {
+margin: 0px;
+font-size: 100%;
+padding: 6px 6px;
+transition: 0.2s;
+line-height: 4;
+background: #fff;
+border: 1px solid #66666666;
+}
+
+/*----*/
+/* text */
+h1, h2, h3, h4, h5, h6, pre {
+font-size: 1em;
+margin: 0;
+}
+
+h2 a {
+margin: 12px -12px;
+font-size: 100%;
+padding: 8px 12px;
+line-height: ;
+background: #22222212;
+}
+
+hr {
+box-sizing: content-box;
+height: 0;
+overflow: visible;
+}
+
+span a {
+margin: 0px;
+font-size: 100%;
+padding: 8px 6px;
+background: #22222212;
+}
+
+
+
+.wp-block-social-links.aligncenter {
+    justify-content: center;
+    display: flex;
+    gap: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#block-2 {
+padding: 22px 0;
+}
+
+ul {
+list-style-type: none;
+margin-block-start: 0em;
+margin-block-end: 0em;
+margin-inline-start: 0px;
+margin-inline-end: 0px;
+padding-inline-start: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+<ul class="wp-block-social-links aligncenter has-small-icon-size is-style-logos-only"><!-- wp:social-link {"url":"gg.gg","service":"github"} /-->
+
+<!-- wp:social-link {"url":"gg","service":"instagram"} /-->
+
+<!-- wp:social-link {"url":"codepen.io/konceptet","service":"codepen"} /-->
+
+<!-- wp:social-link {"url":"gg","service":"google"} /-->
+
+<!-- wp:social-link {"url":"gg","service":"mail"} /--></ul>
+
+
+
+
+
+2022 | no rights reserved | osmik.se
+
+
+
+
+
+
+
+
+
+
+
+.customize-partial-edit-shortcut-button {
+display: none;
+}
+
+::-webkit-scrollbar {
+width: 6px;
+background: rgba(120, 120, 120, 0);
+border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+background: rgba(120, 120, 120, 1);
+border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: rgba(215, 215, 215, 1);
+}
