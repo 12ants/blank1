@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@symbolen 
-symbolen
-/
-blank1
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-blank1/functions.php /
-@symbolen
-symbolen Update functions.php
-Latest commit 55a7ead 21 hours ago
- History
- 1 contributor
-416 lines (366 sloc)  14.4 KB
-
 <?php
 /**
  * blank1 functions and definitions
@@ -443,18 +414,3 @@ function ob_plug_register_required_plugins()
 
 	tgmpa($plugins, $config);
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-blank1/functions.php at 55a7eadec6014fac4a2406ec5a1becd169f9ec1d · symbolen/blank1
