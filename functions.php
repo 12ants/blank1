@@ -1,3 +1,32 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@symbolen 
+symbolen
+/
+blank1
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+blank1/functions.php /
+@symbolen
+symbolen Update functions.php
+Latest commit 55a7ead 21 hours ago
+ History
+ 1 contributor
+416 lines (366 sloc)  14.4 KB
+
 <?php
 /**
  * blank1 functions and definitions
@@ -9,7 +38,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '41.0.0');
+	define('_S_VERSION', '1.0.0');
 }
 
 /**
@@ -328,12 +357,12 @@ function ob_plug_register_required_plugins()
 		'default_path' => '', // Default absolute path to bundled plugins.
 		'menu' => 'tgmpa-install-plugins', // Menu slug.
 		'parent_slug' => 'themes.php', // Parent menu slug.
-		'capability' => 'plugins', // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
+		'capability' => 'edit_theme_options', // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices' => true, // Show admin notices or not.
-		'dismissable' => false, // If false, a user cannot dismiss the nag message.
-		'dismiss_msg' => 'ooooooooooooooo', // If 'dismissable' is false, this message will be output at top of nag.
+		'dismissable' => true, // If false, a user cannot dismiss the nag message.
+		'dismiss_msg' => 'Plugins recommended:', // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => true, // Automatically activate plugins after installation or not.
-		'message' => 'heeeeeeeeeeeej', // Message to output right before the plugins table.
+		'message' => 'All good', // Message to output right before the plugins table.
 
 		/*
 	 'strings'      => array(
@@ -414,3 +443,18 @@ function ob_plug_register_required_plugins()
 
 	tgmpa($plugins, $config);
 }
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+blank1/functions.php at 55a7eadec6014fac4a2406ec5a1becd169f9ec1d · symbolen/blank1
