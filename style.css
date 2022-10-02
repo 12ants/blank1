@@ -54,18 +54,19 @@ border: 1px solid #ccc
 .site img,
 .cp_embed_wrapper {
 height: auto;
-margin: 12 px - 12 px;
-max - width: calc(100 % +24 px);
+margin: 12px -12px;
+max-width: calc(100% + 24px);
 }
 
-.screen - reader - text {
+.screen-reader-text {
 display: none;
 }
 
 a, a:visited, a:active {
 color: #666;
 transition: 0.4s;
-background-color: transparent
+background-color: transparent;
+margin:6px 0;
 }
 
 a:hover, a:visited:hover, a:active:hover {
