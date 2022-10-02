@@ -4,7 +4,6 @@ Theme URI: https://osmik.se/
 Author: Leon Ljunghorn
 Author URI: https://osmik.se/
 Description: free forever | This theme, like WordPress, is licensed under the GPL.
-Version: 0.0.4
 Tested up to: 6.0
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -37,7 +36,8 @@ padding: 0 0;
 margin-bottom: 6px
 }
 
-.site-title, .site-description {
+.site-title,
+.site-description {
 margin: 0;
 text-align: right
 }
@@ -49,8 +49,7 @@ margin-bottom: 82px;
 padding: 8px;
 max-width: 666px;
 border: 1px solid #ccc;
-border-radius:1px;
-
+border-radius: 1px;
 }
 
 .site img {
@@ -58,7 +57,17 @@ height: auto;
 margin: 12px -12px;
 max-width: calc(100% + 24px);
 width: calc(100% + 24px);
-	
+}
+
+.sticky .entry-content {
+margin: 0;
+padding: 0;
+}
+
+.sticky .entry-meta,
+.wp-block-latest-posts__post-author,
+.cat-links {
+display: none !important;
 }
 
 .wp-block-social-links {
@@ -73,13 +82,14 @@ display: flex;
 }
 
 iframe {
-margin-left:-12px!important;
-width:calc(100% + 24px)!important;
+margin-left: -12px !important;
+width: calc(100% + 24px) !important;
 }
 
 .screen-reader-text {
 display: none;
 }
+
 .type-page {
 margin-bottom: 42px;
 background: #fff;
@@ -104,7 +114,6 @@ background: #fff;
 box-shadow: 6px 6px #00000044;
 }
 
-
 .wp-block-latest-posts li a {
 padding: 12px !important;
 line-height: 4;
@@ -114,26 +123,30 @@ background: #fff;
 .wp-block-latest-posts li a:hover {
 padding: 12px !important;
 line-height: 4;
-background: #ffffff!important;
-box-shadow: 0 0 transparent!important;
+background: #ffffff !important;
+box-shadow: 0 0 transparent !important;
 }
 
 .wp-block-latest-posts li:hover {
 padding: 12px !important;
 line-height: 4;
-background: #ffffff!important;
-box-shadow: 0px 0px 41px 2px #ffffff!important;
+background: #ffffff !important;
+box-shadow: 0px 0px 41px 2px #ffffff !important;
 transition: 1s;
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
 color: #666;
 transition: 0.4s;
 background-color: transparent;
-margin:6px 0;
+margin: 6px 0;
 }
 
-a:hover, a:visited:hover, a:active:hover {
+a:hover,
+a:visited:hover,
+a:active:hover {
 transition: 0.4s;
 color: #000;
 box-shadow: 1px 1px #999, 2px 2px #999;
@@ -148,17 +161,19 @@ flex-direction: row;
 letter-spacing:
 }
 
-.published + * {
+.published+* {
 display: none
 }
 
-.entry-title, .wp-block-latest-posts__post-title {
+.entry-title,
+.wp-block-latest-posts__post-title {
 margin-top: -12px;
 line-height: 6;
 letter-spacing: px
 }
 
-.entry-meta, .wp-block-latest-posts__post-author {
+.entry-meta,
+.wp-block-latest-posts__post-author {
 text-align: right;
 margin: 10px -12px 28px;
 line-height: 0
@@ -171,7 +186,8 @@ background: ;
 line-height: 2
 }
 
-.wp-block-latest-posts li, .post {
+.wp-block-latest-posts li,
+.post {
 margin-bottom: 42px;
 background: #fff;
 padding: 26px 12px;
@@ -354,7 +370,7 @@ text-shadow: 0 0 2px #000;
 box-shadow: 0 0 60px 2px #fff
 }
 
-.menu-item-has-children > a:after {
+.menu-item-has-children>a:after {
 content: " >";
 opacity: .4
 }
@@ -396,7 +412,10 @@ z-index: 8;
 display: flex !important;
 }
 
-.sub-menu .sub-menu .menu-item-has-children, .sub-menu > .sub-menu > .menu-item .menu-item, ul > .sub-menu, .sub-menu .sub-menu .menu-item-has-children .sub-menu:first-of-type li {
+.sub-menu .sub-menu .menu-item-has-children,
+.sub-menu>.sub-menu>.menu-item .menu-item,
+ul>.sub-menu,
+.sub-menu .sub-menu .menu-item-has-children .sub-menu:first-of-type li {
 opacity: 0 !important;
 }
 
@@ -418,7 +437,7 @@ z-index: 2;
 position: ;
 }
 
-.sub-menu > li {
+.sub-menu>li {
 padding: 0;
 opacity: 0;
 display: block;
@@ -445,7 +464,13 @@ background: #fff;
 border: 1px solid #6666
 }
 
-h1, h2, h3, h4, h5, h6, pre {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre {
 font-size: 1em;
 margin: 0
 }
@@ -494,15 +519,14 @@ padding-inline-start: 0
 display: none
 }
 
-
 .wp-block-search__inside-wrapper {
-    display: flex;
-    flex: auto;
-    flex-wrap: nowrap;
-    max-width: 100%;
-        background:#ffffff;
-    padding: 6px;
-    border: 1px solid #4444;
+display: flex;
+flex: auto;
+flex-wrap: nowrap;
+max-width: 100%;
+background: #ffffff;
+padding: 6px;
+border: 1px solid #4444;
 }
 
 ::-webkit-scrollbar {
@@ -520,30 +544,37 @@ border-radius: 4px
 background: rgba(215, 215, 215, 1)
 }
 
-
-
-
-
-
 abbr[title] {
 border-bottom: none;
 text-decoration: underline;
 text-decoration: underline dotted;
-} details {
+}
+
+details {
 display: block;
-} summary {
+}
+
+summary {
 display: list-item;
-} code,
+}
+
+code,
 kbd,
 samp {
 font-family: monospace, monospace;
 font-size: 1em;
-} small {
+}
+
+small {
 font-size: 80%;
-} b,
+}
+
+b,
 strong {
 font-weight: bolder;
-} button,
+}
+
+button,
 input,
 optgroup,
 select,
@@ -552,43 +583,65 @@ font-family: inherit;
 font-size: 100%;
 line-height: 1.15;
 margin: 0;
-} button,
+}
+
+button,
 input {
 overflow: visible;
-} button,
+}
+
+button,
 select {
 text-transform: none;
-} sub,
+}
+
+sub,
 sup {
 font-size: 75%;
 line-height: 0;
 position: relative;
 vertical-align: baseline;
-} sub {
+}
+
+sub {
 bottom: -0.25em;
-} sup {
+}
+
+sup {
 top: -0.5em;
-} img {
+}
+
+img {
 border-style: none;
-} button,
+}
+
+button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
 -webkit-appearance: button;
-} button::-moz-focus-inner,
+}
+
+button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
 [type="submit"]::-moz-focus-inner {
 border-style: none;
 padding: 0;
-} button:-moz-focusring,
+}
+
+button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
 outline: 1px dotted ButtonText;
-} fieldset {
+}
+
+fieldset {
 padding: 0.35em 0.75em 0.625em;
-} legend {
+}
+
+legend {
 box-sizing: border-box;
 color: inherit;
 display: table;
@@ -596,27 +649,45 @@ max-width: 100%;
 padding: 0;
 /* 3 */
 white-space: normal;
-} progress {
+}
+
+progress {
 vertical-align: baseline;
-} textarea {
+}
+
+textarea {
 overflow: auto;
-} [type="checkbox"],
+}
+
+[type="checkbox"],
 [type="radio"] {
 box-sizing: border-box;
 padding: 0;
-} [type="number"]::-webkit-inner-spin-button,
+}
+
+[type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
 height: auto;
-} [type="search"] {
+}
+
+[type="search"] {
 -webkit-appearance: textfield;
 outline-offset: -2px;
-} [type="search"]::-webkit-search-decoration {
+}
+
+[type="search"]::-webkit-search-decoration {
 -webkit-appearance: none;
-} ::-webkit-file-upload-button {
+}
+
+::-webkit-file-upload-button {
 -webkit-appearance: button;
 font: inherit;
-} template {
+}
+
+template {
 display: none;
-} [hidden] {
+}
+
+[hidden] {
 display: none;
 }
