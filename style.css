@@ -3,14 +3,17 @@ Theme Name: blank1
 Theme URI: https://osmik.se/
 Author: Leon Ljunghorn
 Author URI: https://osmik.se/
-Description: free forever | This theme, like WordPress, is licensed under the GPL.
+Description: free forever * This theme, like WordPress, is licensed under the GPL.
 Tested up to: 6.0
 Requires PHP: 5.6
+Version: 0.0.8
 License: GNU General Public License v2 or later
-License URI: LICENSE
+License URI: https://github.com/symbolen/blank1/blob/main/LICENSE
 Text Domain: blank1
 Tags: single-column, monospace, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready 
 */
+
+
 html {
 -webkit-text-size-adjust: 100%;
 font-size: 14px;
