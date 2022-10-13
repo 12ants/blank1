@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '4.8.0');
+	define('_S_VERSION', '4.8.20');
 }
 
 /**
@@ -356,8 +356,8 @@ function ob_plug_register_required_plugins()
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 			array(
-			'name' => 'tailored-lightbox', // The plugin name.
-			'slug' => 'tailored-lightbox', // The plugin slug (typically the folder name).
+			'name' => 'wp-migration-duplicator', // The plugin name.
+			'slug' => 'wp-migration-duplicator', // The plugin slug (typically the folder name).
 			'required' => false, // If false, the plugin is only 'recommended' instead of required.
 			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
