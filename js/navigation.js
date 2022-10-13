@@ -1,4 +1,4 @@
-/*! navigation-js v4.6.2 | (c) OpenJS Foundation and other contributors | jquery.org/license */
+/*! navigation-js v4.6.4 | (c) OpenJS Foundation and other contributors | jquery.org/license */
 
 ( function() {
 	const siteNavigation = document.getElementById( 'site-navigation' );
@@ -94,12 +94,3 @@
 	}
 }() );
 
-
-$(document).ready(function() {
-$("a[href$='.png']").attr("href", function(i, origValue) {
-return origValue + ".webp";
-});
-$("a[href$='.jpg']").attr("href", function(i, origValue) {
-return origValue + ".webp";
-});
-});
