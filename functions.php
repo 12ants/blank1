@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '4.8.20');
+	define('_S_VERSION', '4.8.22');
 }
 
 /**
@@ -158,7 +158,6 @@ function blank1_scripts()
 	wp_enqueue_style('blank1-style', get_stylesheet_uri(), array(), _S_VERSION);
 // 	wp_enqueue_style('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.css', array(), _S_VERSION, true);
 
-	wp_style_add_data('blank1-style', 'rtl', 'replace');
 
 	wp_enqueue_script('blank1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
 // 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array(), _S_VERSION, true);
