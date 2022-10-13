@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '1.0.0');
+	define('_S_VERSION', '4.8.0');
 }
 
 /**
@@ -27,7 +27,7 @@ function blank1_setup()
 	 * If you're building a theme based on blank1, use a find and replace
 	 * to change 'blank1' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain('blank1', get_template_directory() . '/languages');
+
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support('automatic-feed-links');
@@ -130,28 +130,149 @@ function blank1_widgets_init()
 		'description' => esc_html__('Add widgets here.', 'blank1'),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget' => '</section>',
-		'before_title' => '<h2 class="widget-title">',
-		'after_title' => '</h2>',
+		'before_title' => '<p class="widget-title">',
+		'after_title' => '</p>',
 	)
 	);
 }
 add_action('widgets_init', 'blank1_widgets_init');
 
-/**
+
+
+ /**
+ * Disable Gutenberg
+ */
+ function smartwp_remove_wp_block_library_css(){
+ wp_dequeue_style( 'wp-block-library' );
+ wp_dequeue_style( 'wp-block-library-theme' );
+ wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+} 
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+ 
+ 
+ /**
  * Enqueue scripts and styles.
  */
 function blank1_scripts()
 {
 	wp_enqueue_style('blank1-style', get_stylesheet_uri(), array(), _S_VERSION);
+// 	wp_enqueue_style('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.css', array(), _S_VERSION, true);
+
 	wp_style_add_data('blank1-style', 'rtl', 'replace');
 
 	wp_enqueue_script('blank1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+// 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
 add_action('wp_enqueue_scripts', 'blank1_scripts');
+
+
+
+
+
+
+
+
+
+/**
+ * Plugin Name: 1-Lightbox
+ * Description: Auto add a lightbox script (using <a href="https://fancyapps.com/fancybox/3/" target="_blank">Fancybox</ * a>).
+ * Author:      osmik
+ * Author URI:  https://osmik.se
+ *
+ * @package 1-lightbox
+ */
+
+/**
+ * Load Plugin CLass
+ */
+new Tailored_Lightbox();
+
+/**
+ * Plugin class
+ */
+class Tailored_Lightbox {
+	/**
+	 * Fancybox Version
+	 *
+	 * @var string
+	 */
+
+
+	/**
+	 *  Constructor
+	 */
+	public function __construct() {
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 *  Enqueue script
+	 */
+	public function enqueue_scripts() {
+//  		$script_url = get_template_directory() . '/fancybox/';
+	wp_enqueue_script('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array( 'jquery' ), $this->version, true );
+// 		wp_enqueue_script( 'fancybox', $script_url . 'jquery.fancybox.js', array( 'jquery' ), $this->version, true );
+// 		wp_enqueue_style( 'fancybox', $script_url . 'jquery.fancybox.css', array(), $this->version, 'screen' );
+	wp_enqueue_style('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.css' , array(), $this->version, 'screen' );
+
+		$inline = $this->get_inline_script();
+		$inline = str_replace( array( '<script>', '</script>' ), '', $inline ); // tags really only there for source formatting in my code.
+		wp_add_inline_script( 'fancybox', $inline );
+	}
+
+	/**
+	 *  Inline script to prepare the loader
+	 */
+	public function get_inline_script() {
+		ob_start();
+		?>
+<script>
+// Loader added for Fancybox
+
+jQuery(document).ready(function($) {
+	// Apply to links to images.
+	$('a[href$=".webp"], a[href$=".jpeg"], a[href$=".png"], a[href$=".jpg"]').attr('rel','fancybox');
+	// Captions.
+	$('a[rel="fancybox"]').each(function(i) {
+		var caption = false;
+		caption_text = $(this).closest('.gallery-item').find('.wp-caption-text').text();
+		if (!caption && caption_text) caption = caption_text;
+		if (!caption)	caption = $(this).attr('title');
+		if (!caption)	caption = $(this).children('img:first').attr('title');
+		if (!caption)	caption = $(this).children('img:first').attr('alt');
+		if (caption)	$(this).attr('data-caption', caption);
+	});
+	// Group them so you can look prev/next.
+	$('a[rel="fancybox"]').attr('data-fancybox', 'pic');
+	$("[data-fancybox]").fancybox({ loop: true });
+});
+</script>
+
+
+	
+
+		<?php
+		return ob_get_clean();
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Implement the Custom Header feature.
@@ -173,29 +294,16 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Load Jetpack compatibility file.
- */
-if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/inc/jetpack.php';
-}
 
 
+
+
+
+
+
+
+
 /**
- * This file represents an example of the code that themes would use to register
- * the required plugins.
- *
- * It is expected that theme authors would copy and paste this code into their
- * functions.php file, and amend to suit.
- *
- * @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
- *
- * @package    TGM-Plugin-Activation
- * @subpackage Example
- * @version    2.6.1 for parent theme Ob Plug
- * @author     Thomas Griffin, Gary Jones, Juliette Reinders Folmer
- * @copyright  Copyright (c) 2011, Thomas Griffin
- * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
  */
 
