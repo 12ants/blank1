@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '4.8.22');
+	define('_S_VERSION', '4.9.0');
 }
 
 /**
@@ -139,16 +139,48 @@ add_action('widgets_init', 'blank1_widgets_init');
 
 
 
+//  /**
+//  * Disable Gutenberg
+//  */
+//  function smartwp_remove_wp_block_library_css(){
+//  wp_dequeue_style( 'wp-block-library' );
+//  wp_dequeue_style( 'wp-block-library-theme' );
+//  wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+// } 
+// add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+ 
  /**
  * Disable Gutenberg
  */
- function smartwp_remove_wp_block_library_css(){
+ function remove_wp_block_library(){
  wp_dequeue_style( 'wp-block-library' );
  wp_dequeue_style( 'wp-block-library-theme' );
  wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+remove_action( 'wp_footer', 'wp_enqueue_global_styles', 100 );
 } 
-add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
- 
+add_action( 'wp_enqueue_scripts', 'remove_wp_block_library', 100 );
+ // Remove Global Styles and SVG Filters from WP 5.9.1 - 2022-02-27
+function remove_global_styles_and_svg_filters() {
+	remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+	remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+}
+add_action('init', 'remove_global_styles_and_svg_filters');
+// This snippet removes the Global Styles and SVG Filters that are mostly if not only used in Full Site Editing in WordPress 5.9.1+
+// Detailed discussion at: https://github.com/WordPress/gutenberg/issues/36834
+// WP default filters: https://github.com/WordPress/WordPress/blob/7d139785ea0cc4b1e9aef21a5632351d0d2ae053/wp-includes/default-filters.php
+//REMOVE GUTENBERG BLOCK LIBRARY CSS FROM LOADING ON FRONTEND
+function remove_wp_block_library_css(){
+wp_dequeue_style( 'wp-block-library' );
+wp_dequeue_style( 'wp-block-library-theme' );
+wp_dequeue_style( 'wc-block-style' ); // REMOVE WOOCOMMERCE BLOCK CSS
+wp_dequeue_style( 'global-styles' ); // REMOVE THEME.JSON
+}
+add_action( 'wp_enqueue_scripts', 'remove_wp_block_library_css', 100 );
+
+
+
+//////////////////////////////////////
  
  /**
  * Enqueue scripts and styles.
@@ -156,11 +188,16 @@ add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
 function blank1_scripts()
 {
 	wp_enqueue_style('blank1-style', get_stylesheet_uri(), array(), _S_VERSION);
+/**
 // 	wp_enqueue_style('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.css', array(), _S_VERSION, true);
+*/
 
 
 	wp_enqueue_script('blank1-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+/**
+
 // 	wp_enqueue_script('fancybox', get_template_directory_uri() . '/fancybox/jquery.fancybox.js', array(), _S_VERSION, true);
+*/
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -264,6 +301,35 @@ function ob_plug_register_required_plugins()
 			'external_url' => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
+			array(
+			'name' => '1-lightbox-webp', // The plugin name.
+			'slug' => '1-lightbox', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
+			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),			array(
+			'name' => '1-lightbox-webp-1', // The plugin name.
+			'slug' => '1-lightbox-1', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'source' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
+			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+			array(
+			'name' => 'fastdup', // The plugin name.
+			'slug' => 'fastdup', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url' => '', // If set, overrides default API URL and points to an external URL.
+			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
 
 		// This is an example of how to include a plugin from an arbitrary external source in your theme.
 			array(
@@ -282,6 +348,11 @@ function ob_plug_register_required_plugins()
 			array(
 			'name' => 'instant-css',
 			'slug' => 'instant-css',
+			'required' => false,
+		),
+			array(
+			'name' => 'white-label-cms',
+			'slug' => 'white-label-cms',
 			'required' => false,
 		),
 			array(
