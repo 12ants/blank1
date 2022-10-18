@@ -398,6 +398,7 @@ function ob_plug_register_required_plugins()
 		'id' => 'ob_plug', // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '', // Default absolute path to bundled plugins.
 		'menu' => 'tgmpa-install-plugins', // Menu slug.
+   	        'menu_title' => __( 'Recommended Plugins', 'ob_plug' ),
 		'parent_slug' => 'themes.php', // Parent menu slug.
 		'capability' => 'edit_theme_options', // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices' => true, // Show admin notices or not.
