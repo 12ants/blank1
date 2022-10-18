@@ -310,16 +310,7 @@ function ob_plug_register_required_plugins()
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 			'external_url' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),			array(
-			'name' => '1-lightbox-webp-1', // The plugin name.
-			'slug' => '1-lightbox-1', // The plugin slug (typically the folder name).
-			'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'source' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
-			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
+		),		
 			array(
 			'name' => 'fastdup', // The plugin name.
 			'slug' => 'fastdup', // The plugin slug (typically the folder name).
