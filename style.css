@@ -2,9 +2,9 @@
 Theme Name: blank1
 Theme URI: https://osmik.se/
 Author: Leon Ljunghorn
-Author URI: https://osmik.se/
-Description: free forever * This theme, like WordPress, is licensed under the GPL.
-Version: 0.1.9
+Author URI: https://leon.osmik.se/
+Description: -- Free forever -- | -- This theme, like WordPress, is licensed under the GPL. --
+Version: 0.2.1
 Tested up to: 6.0
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -12,7 +12,9 @@ License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 Text Domain: blank1
 Tags: single-column, monospace, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 */
-
+* {
+font-family: monospace;
+}
 
 html {
 -webkit-text-size-adjust: 100%;
@@ -28,8 +30,6 @@ width: 100%;
 font-size: 100%;
 overflow-y: overlay !important;
 overflow-x: hidden;
-scroll-behavior: smooth;
-text-rendering: optimizeLegibility;
 font-family: monospace;
 letter-spacing:
 }
@@ -54,7 +54,8 @@ margin: 12px auto;
 background: #dddddd8a;
 margin-bottom: 82px;
 padding: 8px;
-max-width: 666px;
+max-width: 700px;
+/*width: 100%;*/
 border: 1px solid #ccc
 }
 
@@ -163,6 +164,163 @@ outline: 111px solid #bbbb;
 outline-offset: -.5px;
 border-radius: 1px
 }
+
+
+
+h1,h2,h3,h4,h5,h6,pre {
+font-size: 1em;
+margin: 0
+}
+
+h2 a {
+margin: 12px -12px;
+font-size: 100%;
+padding: 8px 12px;
+line-height: ;
+background: #22222212
+}
+
+hr {
+box-sizing: content-box;
+height: 0;
+overflow: visible
+}
+
+span a {
+margin: 0;
+font-size: 100%;
+padding: 8px 6px;
+background: #22222212
+}
+
+.wp-block-social-links .aligncenter {
+justify-content: center;
+display: flex;
+gap: 8px
+}
+
+ul {
+list-style-type: none;
+margin-block-start: 0;
+margin-block-end: 0;
+margin-inline-start: 0;
+margin-inline-end: 0;
+padding-inline-start: 0
+}
+
+.customize-partial-edit-shortcut-button {
+display: none
+}
+
+.wp-block-search__label {
+display: none
+}
+
+.wp-block-search__inside-wrapper {
+display: flex;
+gap: 6px;
+max-width: 100%;
+background: #ffffff00;
+padding: 6px;
+border: 0;
+flex-direction: row;
+justify-content: center
+}
+
+
+.widget:not(.wp-block-spacer) {
+background: #ffffff99;
+padding: 12px;
+margin: 12px;
+border: 1.2px solid #1d1e2266;
+border-radius: 1.4px
+}
+
+.wp-block-spacer {
+opacity: 0;
+}
+
+.has-text-align-center {
+text-align: center
+}
+
+.wp-block-latest-posts {
+display: flex;
+word-break: keep-all;
+text-decoration: none;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: center;
+align-content: center;
+padding: 16px !important;
+gap: 2px
+}
+
+.wp-block-latest-posts a {
+background: #FFFFFF;
+border: 1.2px solid #1d1e2266;
+border-radius: 1.4px;
+padding: 6px;
+text-decoration: none;
+transition: 1s;
+margin: 1px;
+box-shadow: 1px 1px #666666, 2px 2px #666666, 3px 3px #666666, 4px 4px #666666;
+}
+
+audio {
+max-width: 100%;
+width: 100%;
+max-height: 42px;
+mix-blend-mode: difference
+}
+
+.wp-social-link {
+    background: white;
+    text-align: center;
+    width: 0;
+    /* height: 0; */
+    /* padding: 34px; */
+    /* border: 1px solid #cccccc; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* 
+ * 
+ * SCROLLBAR
+ * 
+ * 
+ *  */
+
+::-webkit-scrollbar {
+width: 8px;
+background: transparent;
+border-radius: 8px
+}
+
+::-webkit-scrollbar-thumb {
+background: rgb(195 0 134/38%);
+border-radius: 4px
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: rgba(0, 215, 215, .4)
+}
+
+
+
+/*
+ * 
+ * 
+ *  MENU 
+ * 
+ * 
+ * 
+ */
 
 .main-navigation ul {
 position: fixed;
@@ -418,132 +576,4 @@ line-height: 4;
 background: #fff;
 border: 1px solid #6666
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-pre {
-font-size: 1em;
-margin: 0
-}
-
-h2 a {
-margin: 12px -12px;
-font-size: 100%;
-padding: 8px 12px;
-line-height: ;
-background: #22222212
-}
-
-hr {
-box-sizing: content-box;
-height: 0;
-overflow: visible
-}
-
-span a {
-margin: 0;
-font-size: 100%;
-padding: 8px 6px;
-background: #22222212
-}
-
-.wp-block-social-links .aligncenter {
-justify-content: center;
-display: flex;
-gap: 8px
-}
-
-ul {
-list-style-type: none;
-margin-block-start: 0;
-margin-block-end: 0;
-margin-inline-start: 0;
-margin-inline-end: 0;
-padding-inline-start: 0
-}
-
-.customize-partial-edit-shortcut-button {
-display: none
-}
-
-.wp-block-search__label {
-display: none
-}
-
-.wp-block-search__inside-wrapper {
-display: flex;
-gap: 6px;
-max-width: 100%;
-background: #ffffff00;
-padding: 6px;
-border: 0;
-flex-direction: row;
-justify-content: center
-}
-
-::-webkit-scrollbar {
-width: 8px;
-background: transparent;
-border-radius: 8px
-}
-
-::-webkit-scrollbar-thumb {
-background: rgb(195 0 134/38%);
-border-radius: 4px
-}
-
-::-webkit-scrollbar-thumb:hover {
-background: rgba(0, 215, 215, .4)
-}
-
-
-
-.widget:not(.wp-block-spacer) {
-background: #ffffff99;
-padding: 12px;
-margin: 12px;
-border: 1.2px solid #1d1e2266;
-border-radius: 1.4px
-}
-
-.wp-block-spacer {
-opacity: 0;
-}
-
-.has-text-align-center {
-text-align: center
-}
-
-.wp-block-latest-posts {
-display: flex;
-word-break: keep-all;
-text-decoration: none;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-between;
-align-items: center;
-align-content: center;
-padding: 16px !important;
-gap: 2px
-}
-
-.wp-block-latest-posts a {
-background: #FFFFFF;
-border: 1.2px solid #1d1e2266;
-border-radius: 1.4px;
-padding: 6px;
-text-decoration: none;
-transition: 1s;
-margin: 1px;
-box-shadow: 1px 1px #666666, 2px 2px #666666, 3px 3px #666666, 4px 4px #666666;
-}
-
-audio {
-max-width: 100%;
-max-height: 42px;
-mix-blend-mode: difference
-}
+/* MENU-END */
