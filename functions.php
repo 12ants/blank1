@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '4.9.0');
+	define('_S_VERSION', '4.9.2');
 }
 
 /**
@@ -179,6 +179,29 @@ wp_dequeue_style( 'global-styles' ); // REMOVE THEME.JSON
 add_action( 'wp_enqueue_scripts', 'remove_wp_block_library_css', 100 );
 
 
+<?php
+//Disable emojis in WordPress
+add_action( 'init', 'smartwp_disable_emojis' );
+
+function smartwp_disable_emojis() {
+ remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+ remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+ remove_action( 'wp_print_styles', 'print_emoji_styles' );
+ remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+ remove_action( 'admin_print_styles', 'print_emoji_styles' );
+ remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+ remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+ add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+}
+
+function disable_emojis_tinymce( $plugins ) {
+ if ( is_array( $plugins ) ) {
+ return array_diff( $plugins, array( 'wpemoji' ) );
+ } else {
+ return array();
+ }
+}
+
 
 //////////////////////////////////////
  
@@ -310,6 +333,17 @@ function ob_plug_register_required_plugins()
 			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 			'source' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
+			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
+		),
+		
+			array(
+			'name' => '1-lightbox-webp-github', // The plugin name.
+			'slug' => '1-lightbox-webp', // The plugin slug (typically the folder name).
+			'required' => false, // If false, the plugin is only 'recommended' instead of required.
+			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
+			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
+			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
+			'external_url' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 		
