@@ -9,7 +9,7 @@
 
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
-	define('_S_VERSION', '4.9.2');
+	define('_S_VERSION', '4.9.1');
 }
 
 /**
@@ -179,29 +179,6 @@ wp_dequeue_style( 'global-styles' ); // REMOVE THEME.JSON
 add_action( 'wp_enqueue_scripts', 'remove_wp_block_library_css', 100 );
 
 
-<?php
-//Disable emojis in WordPress
-add_action( 'init', 'smartwp_disable_emojis' );
-
-function smartwp_disable_emojis() {
- remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
- remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
- remove_action( 'wp_print_styles', 'print_emoji_styles' );
- remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
- remove_action( 'admin_print_styles', 'print_emoji_styles' );
- remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
- remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
- add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
-}
-
-function disable_emojis_tinymce( $plugins ) {
- if ( is_array( $plugins ) ) {
- return array_diff( $plugins, array( 'wpemoji' ) );
- } else {
- return array();
- }
-}
-
 
 //////////////////////////////////////
  
@@ -324,7 +301,7 @@ function ob_plug_register_required_plugins()
 			'external_url' => '', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),	
-		
+			
 			array(
 			'name' => '1-lightbox-webp', // The plugin name.
 			'slug' => '1-lightbox', // The plugin slug (typically the folder name).
@@ -333,17 +310,6 @@ function ob_plug_register_required_plugins()
 			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
 			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
 			'source' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
-			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
-		),
-		
-			array(
-			'name' => '1-lightbox-webp-github', // The plugin name.
-			'slug' => '1-lightbox-webp', // The plugin slug (typically the folder name).
-			'required' => false, // If false, the plugin is only 'recommended' instead of required.
-			'version' => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
-			'force_activation' => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
-			'force_deactivation' => false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins.
-			'external_url' => 'https://github.com/symbolen/1-lightbox/archive/refs/heads/main.zip', // If set, overrides default API URL and points to an external URL.
 			'is_callable' => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 		
@@ -432,19 +398,19 @@ function ob_plug_register_required_plugins()
 		'id' => 'ob_plug', // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '', // Default absolute path to bundled plugins.
 		'menu' => 'tgmpa-install-plugins', // Menu slug.
-   	        'menu_title' => __( 'Recommended Plugins', 'ob_plug' ),
-		'parent_slug' => 'themes.php', // Parent menu slug.
+		'parent_slug' => 'plugins.php', // Parent menu slug.
 		'capability' => 'edit_theme_options', // Capability needed to view plugin install page, should be a capability associated with the parent menu used.
 		'has_notices' => true, // Show admin notices or not.
 		'dismissable' => true, // If false, a user cannot dismiss the nag message.
 		'dismiss_msg' => 'Plugins recommended:', // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => true, // Automatically activate plugins after installation or not.
-		'message' => 'All good', // Message to output right before the plugins table.
+		'message' => '-- ONLY INSTALL ONE PLUGIN AT A TIME --', // Message to output right before the plugins table.
 
-		/*
+		
 	 'strings'      => array(
 	 'page_title'                      => __( 'Install Required Plugins', 'ob_plug' ),
-	 'menu_title'                      => __( 'Install Plugins', 'ob_plug' ),
+	 'menu_title'                      => __( 'Recommended Plugins', 'ob_plug' ),
+		 )
 	 /* translators: %s: plugin name. * /
 	 'installing'                      => __( 'Installing Plugin: %s', 'ob_plug' ),
 	 /* translators: %s: plugin name. * /
