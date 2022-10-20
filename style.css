@@ -285,7 +285,14 @@ mix-blend-mode: difference
     display: flex;
     justify-content: center;
     align-items: center;
+    	flex-direction:row;
+
 }
+
+
+
+
+
 
 
 
